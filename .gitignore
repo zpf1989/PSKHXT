@@ -6,5 +6,5 @@
 */*/packages
 #忽略日志目录
 */*/Web/log
-#忽略上传目录
-/Web/Upload
+#忽略files
+files
