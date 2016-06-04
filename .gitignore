@@ -8,7 +8,5 @@
 */*/Web/log
 #忽略files
 files
-#忽略数据库日志文件
-/CODE/data/PSKHXT_log.ldf
 #忽略工程版本文件
 /CODE/PSKHXT/PSKHXT.v12.suo
