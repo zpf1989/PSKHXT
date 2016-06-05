@@ -18,7 +18,7 @@ Date: 2016-06-04 11:06:22
 -- ----------------------------
 -- Table structure for __MigrationHistory
 -- ----------------------------
-DROP TABLE [dbo].[__MigrationHistory]
+-- DROP TABLE [dbo].[__MigrationHistory]
 GO
 CREATE TABLE [dbo].[__MigrationHistory] (
 [MigrationId] nvarchar(150) NOT NULL ,
@@ -46,7 +46,7 @@ GO
 -- ----------------------------
 -- Table structure for Modules
 -- ----------------------------
-DROP TABLE [dbo].[Modules]
+-- DROP TABLE [dbo].[Modules]
 GO
 CREATE TABLE [dbo].[Modules] (
 [Id] int NOT NULL IDENTITY(1,1) ,
@@ -100,7 +100,7 @@ GO
 -- ----------------------------
 -- Table structure for PermissionRoles
 -- ----------------------------
-DROP TABLE [dbo].[PermissionRoles]
+-- DROP TABLE [dbo].[PermissionRoles]
 GO
 CREATE TABLE [dbo].[PermissionRoles] (
 [Permission_Id] int NOT NULL ,
@@ -330,7 +330,7 @@ GO
 -- ----------------------------
 -- Table structure for Permissions
 -- ----------------------------
-DROP TABLE [dbo].[Permissions]
+-- DROP TABLE [dbo].[Permissions]
 GO
 CREATE TABLE [dbo].[Permissions] (
 [Id] int NOT NULL IDENTITY(1,1) ,
@@ -430,7 +430,7 @@ GO
 -- ----------------------------
 -- Table structure for Roles
 -- ----------------------------
-DROP TABLE [dbo].[Roles]
+-- DROP TABLE [dbo].[Roles]
 GO
 CREATE TABLE [dbo].[Roles] (
 [Id] int NOT NULL IDENTITY(1,1) ,
@@ -493,7 +493,7 @@ GO
 -- ----------------------------
 -- Table structure for RoleUsers
 -- ----------------------------
-DROP TABLE [dbo].[RoleUsers]
+-- DROP TABLE [dbo].[RoleUsers]
 GO
 CREATE TABLE [dbo].[RoleUsers] (
 [Role_Id] int NOT NULL ,
@@ -516,7 +516,7 @@ GO
 -- ----------------------------
 -- Table structure for UserGroupRoles
 -- ----------------------------
-DROP TABLE [dbo].[UserGroupRoles]
+-- DROP TABLE [dbo].[UserGroupRoles]
 GO
 CREATE TABLE [dbo].[UserGroupRoles] (
 [UserGroup_Id] int NOT NULL ,
@@ -539,7 +539,7 @@ GO
 -- ----------------------------
 -- Table structure for UserGroups
 -- ----------------------------
-DROP TABLE [dbo].[UserGroups]
+-- DROP TABLE [dbo].[UserGroups]
 GO
 CREATE TABLE [dbo].[UserGroups] (
 [Id] int NOT NULL IDENTITY(1,1) ,
@@ -572,7 +572,7 @@ GO
 -- ----------------------------
 -- Table structure for UserGroupUsers
 -- ----------------------------
-DROP TABLE [dbo].[UserGroupUsers]
+-- DROP TABLE [dbo].[UserGroupUsers]
 GO
 CREATE TABLE [dbo].[UserGroupUsers] (
 [UserGroup_Id] int NOT NULL ,
@@ -595,7 +595,7 @@ GO
 -- ----------------------------
 -- Table structure for Users
 -- ----------------------------
-DROP TABLE [dbo].[Users]
+-- DROP TABLE [dbo].[Users]
 GO
 CREATE TABLE [dbo].[Users] (
 [Id] int NOT NULL IDENTITY(1,1) ,
