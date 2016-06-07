@@ -1,0 +1,80 @@
+﻿@using ViewModel.RBAC
+@model ModuleVM
+@{
+    List<SelectListItem> parentList = ViewData["parentModules"] as List<SelectListItem>;
+}
+<link href="~/Scripts/AdminLTE2.3.0/plugins/iCheck/square/blue.css" rel="stylesheet" />
+<script src="~/Scripts/Custom/base.js"></script>
+<style>
+    .info-mustinput {
+        color: red;
+        margin-left: -8px;
+    }
+</style>
+@Html.HiddenFor(m => m.Id)
+<div class="form-group">
+    <div class="col-sm-2">
+        <label class="info-mustinput">*</label>@Html.LabelFor(model => model.Name, new { @class = "control-label" })
+    </div>
+    <div class="col-sm-8">
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-2">
+        <label class="info-mustinput">*</label>@Html.LabelFor(model => model.ParentName, new { @class = "control-label" })
+    </div>
+    <div class="col-sm-8">
+        @Html.DropDownListFor(model => model.ParentId, parentList, "--请选择--", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.ParentId)
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-2">
+        <label class="info-mustinput">*</label>@Html.LabelFor(model => model.LinkUrl, new { @class = " control-label" })
+    </div>
+    <div class="col-sm-8">
+        @Html.TextBoxFor(model => model.LinkUrl, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.LinkUrl)
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-2">
+        <label class="info-mustinput">*</label>@Html.LabelFor(model => model.Code, new { @class = " control-label" })
+    </div>
+    <div class="col-sm-8">
+        @Html.TextBoxFor(model => model.Code, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Code)
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-2">
+        @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+    </div>
+    <div class="col-sm-8">
+        @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Description)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.IsMenu, new { @class = "col-sm-2 control-label" })
+    <div class="checkbox icheck col-sm-8">
+        @Html.CheckBoxFor(model => model.IsMenu, new { @class = "myCheck" })@*增加myCheck样式为了避免表格中的checkbox失效*@
+        @Html.ValidationMessageFor(model => model.IsMenu)
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-2">
+        @Html.LabelFor(model => model.Enabled, new { @class = "control-label" })
+    </div>
+    <div class="checkbox icheck col-sm-8">
+        @Html.CheckBoxFor(model => model.Enabled, new { @class = "myCheck" })
+        @Html.ValidationMessageFor(model => model.Enabled)
+    </div>
+</div>
+<script>
+    $(function () {
+        gFunc.setCheckBoxStyle('input.myCheck');
+    });
+</script>

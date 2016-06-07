@@ -24,7 +24,7 @@ namespace Infrastructure.Enums
         /// <summary>
         /// 修改按钮（角色管理）
         /// </summary>
-        UpdateRole = 4,
+        EditRole = 4,
         /// <summary>
         /// 删除按钮（角色管理）
         /// </summary>
@@ -48,7 +48,7 @@ namespace Infrastructure.Enums
         /// <summary>
         /// 修改按钮（用户管理）
         /// </summary>
-        UpdateUser = 128,
+        EditUser = 128,
         /// <summary>
         /// 删除按钮（用户管理）
         /// </summary>
@@ -79,7 +79,7 @@ namespace Infrastructure.Enums
         /// <summary>
         /// 修改按钮（模块管理）
         /// </summary>
-        UpdateModule = 16384,
+        EditModule = 16384,
         #endregion
 
         #region 权限管理
@@ -94,7 +94,7 @@ namespace Infrastructure.Enums
         /// <summary>
         /// 修改按钮（权限管理）
         /// </summary>
-        UpdatePermission = 131072,
+        EditPermission = 131072,
         #endregion
 
         #region 操作日志管理
@@ -117,7 +117,7 @@ namespace Infrastructure.Enums
         /// <summary>
         /// 修改按钮（用户组管理）
         /// </summary>
-        UpdateUserGroup = 2097152,
+        EditUserGroup = 2097152,
         /// <summary>
         /// 删除按钮（用户组管理）
         /// </summary>

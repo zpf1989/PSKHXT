@@ -1,0 +1,77 @@
+﻿@using Model.RBAC
+@{
+    var enableItems = ViewData["enableItems"] as List<SelectListItem>;
+    var btnAdd = ViewData["btnAddModulePermission"] as Permission;
+    var btnEdit = ViewData["btnEditModulePermission"] as Permission;
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>模块管理</h1>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index", "Home", new { area = "Common" })"><i class="fa fa-dashboard"></i>主页</a>
+            </li>
+            <li class="active">模块管理</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section id="moduleSection" class="content">
+        <div class="panel-body" style="padding-bottom:0px;">
+            <div class="panel panel-default">
+                <div class="panel-heading">查询条件</div>
+                <div class="panel-body">
+                    <form id="formSearch" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-1" for="txtSearchModuleName">模块名称</label>
+                            <div class="col-sm-3">
+                                <input type="text" name="ModuleName" id="txtSearchModuleName" class="form-control" placeholder="请输入模块名称" />
+                            </div>
+                            <label class="control-label col-sm-1">是否激活</label>
+                            <div class="col-sm-3">
+                                @Html.DropDownList("ddlSearchModuleEnable", enableItems, new { @class = "form-control" })
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="button" id="btnSearch" class="btn btn-primary">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="toolbar" class="btn-group">
+                @{
+                    if (btnAdd != null)
+                    {
+                        <button id="btnAdd" type="button" class="btn btn-success">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>@btnAdd.Name
+                        </button>
+                    }
+                    if (btnEdit != null)
+                    {
+                        <button type="button" id="btnEdit" class="btn btn-success">
+                            <span class="glyphicon glyphicon-edit"></span>@btnEdit.Name
+                        </button>
+                    }
+                }
+            </div>
+
+            <table id="tableModules"></table>
+        </div>
+        @Html.Partial("_ModalForm")
+    </section>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/Custom/tableHelper.js"></script>
+    <script src="~/Scripts/Custom/modalFormHelper.js"></script>
+    @Scripts.Render("~/bundles/module")
+    <script>
+        $(function () {
+            moduleList.init({ searchUrl: "@Url.Action("GetModules")", addUrl: "@Url.Action("Add")", editUrl: "@Url.Action("Edit")" });
+        });
+    </script>
+}

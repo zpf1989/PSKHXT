@@ -1,43 +1,70 @@
-﻿<!DOCTYPE html>
+﻿@using ViewModel.RBAC
+@{
+    List<ModuleVM> sidebarMenuDataList = ViewBag.SidebarMenuModel;
+}
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">@*禁用缩放*@
+    <title>公务员平时考核系统</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <!-- Font Awesome -->
+    <link href="~/Content/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Ionicons -->
+    <link href="~/Content/ionicons/css/ionicons.min.css" rel="stylesheet" />
+    @RenderSection("css", false)
+    <!-- Theme style -->
+    @*<link href="Scripts/AdminLTE2.3.0/dist/css/AdminLTE.min.css" rel="stylesheet" />*@
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+          page. However, you can choose any other skin. Make sure you
+          apply the skin class to the body tag so the changes take effect.
+    -->
+    @*<link href="Scripts/AdminLTE2.3.0/dist/css/skins/skin-blue.min.css" rel="stylesheet" />*@
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="~/Scripts/html5shiv.min.js"></script>
+        <script src="~/Scripts/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("应用程序名称", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
-                    <li>@Html.ActionLink("关于", "About", "Home")</li>
-                    <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Main Header -->
+        @Html.Partial("_MainHeader")
+        <!-- Left side menus. contains the logo and sidebar -->
+        @Html.Partial("_LeftSideMenus", sidebarMenuDataList)
+        <!-- Content Wrapper. Contains page content -->
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
-        </footer>
-    </div>
-
+        <!-- Main Footer -->
+        @Html.Partial("_MainFooter")
+        <!-- Control Sidebar -->
+        @*@Html.Partial("_ControlSidebar")*@
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/Toastr/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.options = { positionClass: "toast-top-center", showDuration: "150", hideDuration: "2000", showMethod: "fadeIn" };
+    </script>
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- jQuery 2.1.4 -->
+    @*<script src="Scripts/AdminLTE2.3.0/plugins/jQuery/jQuery-2.1.4.min.js"></script>*@
+    <!-- Bootstrap 3.3.5 -->
+    @*<script src="Scripts/AdminLTE2.3.0/bootstrap/js/bootstrap.min.js"></script>*@
+    <!-- AdminLTE App -->
+    @*<script src="Scripts/AdminLTE2.3.0/dist/js/app.min.js"></script>*@
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
+         Both of these plugins are recommended to enhance the
+         user experience. Slimscroll is required when using the
+         fixed layout. -->
 </body>
 </html>

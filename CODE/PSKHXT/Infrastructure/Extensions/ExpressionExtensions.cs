@@ -19,7 +19,7 @@ namespace Infrastructure.Extensions
         /// <param name="first">表达式一</param>
         /// <param name="second">表达式二</param>
         /// <returns></returns>
-        public static Expression<Func<T, bool>> Add<T>(this Expression<Func<T, bool>> first, Expression<Func<T, bool>> second)
+        public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> first, Expression<Func<T, bool>> second)
         {
             DynamicLambda<T> builder = new DynamicLambda<T>();
             Expression<Func<T, bool>> combined = builder.BuildQueryAnd(first, second);
