@@ -2,23 +2,23 @@
 Navicat SQL Server Data Transfer
 
 Source Server         : mss-local
-Source Server Version : 110000
+Source Server Version : 105000
 Source Host           : localhost:1433
 Source Database       : PSKHXT
 Source Schema         : dbo
 
 Target Server Type    : SQL Server
-Target Server Version : 110000
+Target Server Version : 105000
 File Encoding         : 65001
 
-Date: 2016-06-04 11:06:22
+Date: 2016-06-09 09:49:01
 */
 
 
 -- ----------------------------
 -- Table structure for __MigrationHistory
 -- ----------------------------
--- DROP TABLE [dbo].[__MigrationHistory]
+DROP TABLE [dbo].[__MigrationHistory]
 GO
 CREATE TABLE [dbo].[__MigrationHistory] (
 [MigrationId] nvarchar(150) NOT NULL ,
@@ -46,7 +46,7 @@ GO
 -- ----------------------------
 -- Table structure for Modules
 -- ----------------------------
--- DROP TABLE [dbo].[Modules]
+DROP TABLE [dbo].[Modules]
 GO
 CREATE TABLE [dbo].[Modules] (
 [Id] int NOT NULL IDENTITY(1,1) ,
@@ -62,7 +62,7 @@ CREATE TABLE [dbo].[Modules] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[Modules]', RESEED, 8)
+DBCC CHECKIDENT(N'[dbo].[Modules]', RESEED, 12)
 GO
 
 -- ----------------------------
@@ -70,28 +70,37 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[Modules] ON
 GO
-INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'1', null, N'授权管理', N'#', N'1', N'200', null, N'1', N'2016-06-03 16:30:54.230')
+INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'1', null, N'授权管理', N'#', N'1', N'200', N'搜权管理', N'1', N'2016-06-08 10:04:29.723')
 GO
 GO
-INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'2', N'1', N'角色管理', N'~/Member/Role/Index', N'1', N'201', null, N'1', N'2016-06-03 16:30:54.230')
+INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'2', N'1', N'角色管理', N'~/RBAC/Role/Index', N'1', N'201', null, N'1', N'2016-06-07 14:14:07.707')
 GO
 GO
-INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'3', N'1', N'用户管理', N'~/Member/User/Index', N'1', N'202', null, N'1', N'2016-06-03 16:30:54.230')
+INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'3', N'1', N'用户管理', N'~/RBAC/User/Index', N'1', N'202', null, N'1', N'2016-06-07 14:14:07.707')
 GO
 GO
-INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'4', N'1', N'模块管理', N'~/Member/Module/Index', N'1', N'204', null, N'1', N'2016-06-03 16:30:54.230')
+INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'4', N'1', N'模块管理', N'~/RBAC/Module/Index', N'1', N'204', null, N'1', N'2016-06-07 14:14:07.707')
 GO
 GO
-INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'5', N'1', N'权限管理', N'~/Member/Permission/Index', N'1', N'205', null, N'1', N'2016-06-03 16:30:54.230')
+INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'5', N'1', N'权限管理', N'~/RBAC/Permission/Index', N'1', N'205', null, N'1', N'2016-06-07 14:14:07.707')
 GO
 GO
-INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'6', null, N'系统应用', N'#', N'1', N'300', null, N'1', N'2016-06-03 16:30:54.230')
+INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'6', null, N'系统应用', N'#', N'1', N'300', null, N'1', N'2016-06-07 14:14:07.707')
 GO
 GO
-INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'7', N'6', N'操作日志管理', N'#', N'1', N'301', null, N'1', N'2016-06-03 16:30:54.230')
+INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'7', N'6', N'操作日志管理', N'#', N'1', N'301', null, N'0', N'2016-06-07 14:14:07.707')
 GO
 GO
-INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'8', N'1', N'用户组管理', N'~/Member/UserGroup/Index', N'1', N'203', null, N'1', N'2016-06-03 16:30:54.230')
+INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'8', N'1', N'用户组管理', N'~/RBAC/UserGroup/Index', N'1', N'203', null, N'1', N'2016-06-07 14:14:07.707')
+GO
+GO
+INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'10', null, N'测试', N'#', N'1', N'400', null, N'1', N'2016-06-08 08:46:47.873')
+GO
+GO
+INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'11', N'10', N'测试1', N'#', N'1', N'401', null, N'1', N'2016-06-08 10:09:21.450')
+GO
+GO
+INSERT INTO [dbo].[Modules] ([Id], [ParentId], [Name], [LinkUrl], [IsMenu], [Code], [Description], [Enabled], [UpdateDate]) VALUES (N'12', N'10', N'测试2', N'#', N'1', N'402', null, N'1', N'2016-06-08 08:47:43.410')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[Modules] OFF
@@ -100,7 +109,7 @@ GO
 -- ----------------------------
 -- Table structure for PermissionRoles
 -- ----------------------------
--- DROP TABLE [dbo].[PermissionRoles]
+DROP TABLE [dbo].[PermissionRoles]
 GO
 CREATE TABLE [dbo].[PermissionRoles] (
 [Permission_Id] int NOT NULL ,
@@ -330,7 +339,7 @@ GO
 -- ----------------------------
 -- Table structure for Permissions
 -- ----------------------------
--- DROP TABLE [dbo].[Permissions]
+DROP TABLE [dbo].[Permissions]
 GO
 CREATE TABLE [dbo].[Permissions] (
 [Id] int NOT NULL IDENTITY(1,1) ,
@@ -358,7 +367,7 @@ GO
 INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'2', N'新增', N'AddRole', N'描述', N'1', N'2', N'2016-06-03 09:13:26.533')
 GO
 GO
-INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'3', N'修改', N'UpdateRole', N'描述', N'1', N'2', N'2016-06-03 09:13:26.533')
+INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'3', N'修改', N'EditRole', N'描述', N'1', N'2', N'2016-06-03 09:13:26.533')
 GO
 GO
 INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'4', N'删除', N'DeleteRole', N'描述', N'1', N'2', N'2016-06-03 09:13:26.533')
@@ -373,7 +382,7 @@ GO
 INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'7', N'新增', N'AddUser', N'描述', N'1', N'3', N'2016-06-03 09:13:26.533')
 GO
 GO
-INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'8', N'修改', N'UpdateUser', N'描述', N'1', N'3', N'2016-06-03 09:13:26.533')
+INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'8', N'修改', N'EditUser', N'描述', N'1', N'3', N'2016-06-03 09:13:26.533')
 GO
 GO
 INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'9', N'删除', N'DeleteUser', N'描述', N'1', N'3', N'2016-06-03 09:13:26.533')
@@ -394,7 +403,7 @@ GO
 INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'14', N'新增', N'AddModule', N'描述', N'1', N'4', N'2016-06-03 09:13:26.533')
 GO
 GO
-INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'15', N'修改', N'UpdateModule', N'描述', N'1', N'4', N'2016-06-03 09:13:26.533')
+INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'15', N'修改', N'EditModule', N'描述', N'1', N'4', N'2016-06-03 09:13:26.533')
 GO
 GO
 INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'16', N'查询', N'QueryPermission', N'描述', N'1', N'5', N'2016-06-03 09:13:26.533')
@@ -403,7 +412,7 @@ GO
 INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'17', N'新增', N'AddPermission', N'描述', N'1', N'5', N'2016-06-03 09:13:26.533')
 GO
 GO
-INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'18', N'修改', N'UpdatePermission', N'描述', N'1', N'5', N'2016-06-03 09:13:26.533')
+INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'18', N'修改', N'EditPermission', N'描述', N'1', N'5', N'2016-06-03 09:13:26.533')
 GO
 GO
 INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'19', N'查询', N'QuerySystemLog', N'描述', N'1', N'7', N'2016-06-03 09:13:26.533')
@@ -415,7 +424,7 @@ GO
 INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'21', N'新增', N'AddUserGroup', N'描述', N'1', N'8', N'2016-06-03 09:13:26.533')
 GO
 GO
-INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'22', N'修改', N'UpdateUserGroup', N'描述', N'1', N'8', N'2016-06-03 09:13:26.533')
+INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'22', N'修改', N'EditUserGroup', N'描述', N'1', N'8', N'2016-06-03 09:13:26.533')
 GO
 GO
 INSERT INTO [dbo].[Permissions] ([Id], [Name], [Code], [Description], [Enabled], [ModuleId], [UpdateDate]) VALUES (N'23', N'删除', N'DeleteUserGroup', N'描述', N'1', N'8', N'2016-06-03 09:13:26.533')
@@ -430,7 +439,7 @@ GO
 -- ----------------------------
 -- Table structure for Roles
 -- ----------------------------
--- DROP TABLE [dbo].[Roles]
+DROP TABLE [dbo].[Roles]
 GO
 CREATE TABLE [dbo].[Roles] (
 [Id] int NOT NULL IDENTITY(1,1) ,
@@ -451,40 +460,40 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[Roles] ON
 GO
-INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'1', N'superadmin', N'超级管理员', N'1', N'1', N'2016-06-03 16:30:54.630')
+INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'1', N'superadmin', N'超级管理员', N'1', N'1', N'2016-06-07 14:14:08.093')
 GO
 GO
-INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'2', N'管理员', N'系统管理员', N'1', N'1', N'2016-06-03 16:30:54.630')
+INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'2', N'管理员', N'系统管理员', N'1', N'1', N'2016-06-07 14:14:08.093')
 GO
 GO
-INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'3', N'普通角色1', N'普通角色1', N'1', N'1', N'2016-06-03 16:30:54.630')
+INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'3', N'普通角色1', N'普通角色1', N'1', N'1', N'2016-06-07 14:14:08.093')
 GO
 GO
-INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'4', N'普通角色2', N'普通角色2', N'1', N'1', N'2016-06-03 16:30:54.630')
+INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'4', N'普通角色2', N'普通角色2', N'1', N'1', N'2016-06-07 14:14:08.093')
 GO
 GO
-INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'5', N'普通角色3', N'普通角色3', N'1', N'1', N'2016-06-03 16:30:54.630')
+INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'5', N'普通角色3', N'普通角色3', N'1', N'1', N'2016-06-07 14:14:08.093')
 GO
 GO
-INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'6', N'普通角色4', N'普通角色4', N'1', N'1', N'2016-06-03 16:30:54.630')
+INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'6', N'普通角色4', N'普通角色4', N'1', N'1', N'2016-06-07 14:14:08.093')
 GO
 GO
-INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'7', N'普通角色5', N'普通角色5', N'1', N'1', N'2016-06-03 16:30:54.630')
+INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'7', N'普通角色5', N'普通角色5', N'1', N'1', N'2016-06-07 14:14:08.093')
 GO
 GO
-INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'8', N'普通角色6', N'普通角色6', N'1', N'1', N'2016-06-03 16:30:54.630')
+INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'8', N'普通角色6', N'普通角色6', N'1', N'1', N'2016-06-07 14:14:08.093')
 GO
 GO
-INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'9', N'普通角色7', N'普通角色7', N'1', N'1', N'2016-06-03 16:30:54.630')
+INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'9', N'普通角色7', N'普通角色7', N'1', N'1', N'2016-06-07 14:14:08.093')
 GO
 GO
-INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'10', N'普通角色8', N'普通角色8', N'1', N'1', N'2016-06-03 16:30:54.630')
+INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'10', N'普通角色8', N'普通角色8', N'1', N'1', N'2016-06-07 14:14:08.093')
 GO
 GO
-INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'11', N'普通角色9', N'普通角色9', N'1', N'1', N'2016-06-03 16:30:54.630')
+INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'11', N'普通角色9', N'普通角色9', N'1', N'1', N'2016-06-07 14:14:08.093')
 GO
 GO
-INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'12', N'普通角色10', N'普通角色10', N'1', N'1', N'2016-06-03 16:30:54.630')
+INSERT INTO [dbo].[Roles] ([Id], [RoleName], [Description], [Enabled], [OrderSort], [UpdateDate]) VALUES (N'12', N'普通角色10', N'普通角色10', N'1', N'1', N'2016-06-07 14:14:08.093')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[Roles] OFF
@@ -493,7 +502,7 @@ GO
 -- ----------------------------
 -- Table structure for RoleUsers
 -- ----------------------------
--- DROP TABLE [dbo].[RoleUsers]
+DROP TABLE [dbo].[RoleUsers]
 GO
 CREATE TABLE [dbo].[RoleUsers] (
 [Role_Id] int NOT NULL ,
@@ -516,7 +525,7 @@ GO
 -- ----------------------------
 -- Table structure for UserGroupRoles
 -- ----------------------------
--- DROP TABLE [dbo].[UserGroupRoles]
+DROP TABLE [dbo].[UserGroupRoles]
 GO
 CREATE TABLE [dbo].[UserGroupRoles] (
 [UserGroup_Id] int NOT NULL ,
@@ -539,7 +548,7 @@ GO
 -- ----------------------------
 -- Table structure for UserGroups
 -- ----------------------------
--- DROP TABLE [dbo].[UserGroups]
+DROP TABLE [dbo].[UserGroups]
 GO
 CREATE TABLE [dbo].[UserGroups] (
 [Id] int NOT NULL IDENTITY(1,1) ,
@@ -560,10 +569,10 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[UserGroups] ON
 GO
-INSERT INTO [dbo].[UserGroups] ([Id], [GroupName], [Description], [OrderSort], [Enabled], [UpdateDate]) VALUES (N'1', N'开发组', N'开发人员组', N'1', N'1', N'2016-06-03 16:30:54.697')
+INSERT INTO [dbo].[UserGroups] ([Id], [GroupName], [Description], [OrderSort], [Enabled], [UpdateDate]) VALUES (N'1', N'开发组', N'开发人员组', N'1', N'1', N'2016-06-07 14:14:08.143')
 GO
 GO
-INSERT INTO [dbo].[UserGroups] ([Id], [GroupName], [Description], [OrderSort], [Enabled], [UpdateDate]) VALUES (N'2', N'项目经理组', N'项目经理组', N'2', N'1', N'2016-06-03 16:30:54.697')
+INSERT INTO [dbo].[UserGroups] ([Id], [GroupName], [Description], [OrderSort], [Enabled], [UpdateDate]) VALUES (N'2', N'项目经理组', N'项目经理组', N'2', N'1', N'2016-06-07 14:14:08.143')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[UserGroups] OFF
@@ -572,7 +581,7 @@ GO
 -- ----------------------------
 -- Table structure for UserGroupUsers
 -- ----------------------------
--- DROP TABLE [dbo].[UserGroupUsers]
+DROP TABLE [dbo].[UserGroupUsers]
 GO
 CREATE TABLE [dbo].[UserGroupUsers] (
 [UserGroup_Id] int NOT NULL ,
@@ -595,7 +604,7 @@ GO
 -- ----------------------------
 -- Table structure for Users
 -- ----------------------------
--- DROP TABLE [dbo].[Users]
+DROP TABLE [dbo].[Users]
 GO
 CREATE TABLE [dbo].[Users] (
 [Id] int NOT NULL IDENTITY(1,1) ,
@@ -619,10 +628,10 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[Users] ON
 GO
-INSERT INTO [dbo].[Users] ([Id], [UserName], [Password], [Email], [Phone], [Address], [UpdateDate], [TrueName], [Enabled]) VALUES (N'1', N'admin', N'e10adc3949ba59abbe56e057f20f883e', N'375368093@qq.com', N'18181818181', N'广东广州市天河区科韵路XX街XX号XXX房X号', N'2016-06-03 16:30:54.673', N'管理员', N'1')
+INSERT INTO [dbo].[Users] ([Id], [UserName], [Password], [Email], [Phone], [Address], [UpdateDate], [TrueName], [Enabled]) VALUES (N'1', N'admin', N'e10adc3949ba59abbe56e057f20f883e', N'375368093@qq.com', N'18181818181', N'广东广州市天河区科韵路XX街XX号XXX房X号', N'2016-06-07 14:14:08.123', N'管理员', N'1')
 GO
 GO
-INSERT INTO [dbo].[Users] ([Id], [UserName], [Password], [Email], [Phone], [Address], [UpdateDate], [TrueName], [Enabled]) VALUES (N'2', N'xiaowu', N'e10adc3949ba59abbe56e057f20f883e', N'11111@1111.com', N'18181818181', N'广东广州市天河区科韵路XX街X广东广州市天河区科韵路XX街XX号XXX房X号', N'2016-06-03 16:30:54.673', N'小吴', N'1')
+INSERT INTO [dbo].[Users] ([Id], [UserName], [Password], [Email], [Phone], [Address], [UpdateDate], [TrueName], [Enabled]) VALUES (N'2', N'xiaowu', N'e10adc3949ba59abbe56e057f20f883e', N'11111@1111.com', N'18181818181', N'广东广州市天河区科韵路XX街X广东广州市天河区科韵路XX街XX号XXX房X号', N'2016-06-07 14:14:08.123', N'小吴', N'1')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[Users] OFF
@@ -797,7 +806,7 @@ GO
 -- ----------------------------
 -- Foreign Key structure for table [dbo].[UserGroupUsers]
 -- ----------------------------
-ALTER TABLE [dbo].[UserGroupUsers] ADD FOREIGN KEY ([UserGroup_Id]) REFERENCES [dbo].[UserGroups] ([Id]) ON DELETE CASCADE ON UPDATE NO ACTION
-GO
 ALTER TABLE [dbo].[UserGroupUsers] ADD FOREIGN KEY ([User_Id]) REFERENCES [dbo].[Users] ([Id]) ON DELETE CASCADE ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[UserGroupUsers] ADD FOREIGN KEY ([UserGroup_Id]) REFERENCES [dbo].[UserGroups] ([Id]) ON DELETE CASCADE ON UPDATE NO ACTION
 GO
