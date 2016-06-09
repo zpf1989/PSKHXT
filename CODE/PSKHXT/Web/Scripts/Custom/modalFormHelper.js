@@ -17,7 +17,7 @@ var modalFormHelper = {
             success: function (result) {
                 $("#modal-content").html(result);
                 $('#modal-form').modal('show');
-                RegisterForm();//通过Ajax加载返回的页面原有MVC属性验证将失效，需要重新注册验证脚本。
+                modalFormHelper.registerForm();//通过Ajax加载返回的页面原有MVC属性验证将失效，需要重新注册验证脚本。
             },
             error: function () {
                 //

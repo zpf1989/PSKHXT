@@ -15,7 +15,7 @@ using IDAL;
 using DAL.Repositories;
 using IDAL.RBAC;
 
-namespace Web.Extension
+namespace Web.Extension.Autofac
 {
     public static class RegisterAutofacForSingle
     {

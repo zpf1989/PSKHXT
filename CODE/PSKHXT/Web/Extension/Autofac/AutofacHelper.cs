@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 
-namespace Infrastructure
+namespace Web.Extension.Autofac
 {
     public class AutofacHelper : IAutofacHelper
     {

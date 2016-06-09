@@ -138,10 +138,12 @@
     <Compile Include="Areas\RBAC\Controllers\ModuleController.cs" />
     <Compile Include="Areas\RBAC\RBACAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Extension\Autofac\AutofacHelper.cs" />
+    <Compile Include="Extension\Autofac\IAutofacHelper.cs" />
     <Compile Include="Extension\Common\DataSourceHelper.cs" />
     <Compile Include="Extension\Filters\IsAjaxAttribute.cs" />
     <Compile Include="Extension\Filters\LayoutAttribute.cs" />
-    <Compile Include="Extension\RegisterAutofacForSingle.cs" />
+    <Compile Include="Extension\Autofac\RegisterAutofacForSingle.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1808,7 +1810,9 @@
     <Content Include="Scripts\Toastr\toastr.min.css" />
     <Content Include="Scripts\Toastr\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

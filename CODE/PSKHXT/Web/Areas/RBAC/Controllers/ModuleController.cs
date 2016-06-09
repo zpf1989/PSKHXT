@@ -14,6 +14,7 @@ using Web.Extension.Common;
 using Web.Extension.Filters;
 using Infrastructure.Extensions;
 using ViewModel.RBAC;
+using Infrastructure.OptResult;
 
 namespace Web.Areas.RBAC.Controllers
 {
@@ -60,19 +61,63 @@ namespace Web.Areas.RBAC.Controllers
             return Json(new { total = total, rows = result }, JsonRequestBehavior.AllowGet);
         }
 
-        /// <summary>
-        /// Add
-        /// </summary>
-        /// <returns></returns>
+        #region 增加
         [HttpGet]
         public ActionResult Add()
         {
-            ViewData["parentModules"] = _moduleService.Modules
-                .Where(m => m.IsMenu == true && m.Enabled == true && m.ParentId == null)
-                .Select(m => new SelectListItem { Text = m.Name, Value = m.Id.ToString() })
-                .ToList();
+            GetParentModuleList(null);
             return PartialView(new ModuleVM());
         }
+
+        [HttpPost]
+        public ActionResult Add(ModuleVM moduleVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new OperationResult(OperationResultType.ParamError, "参数错误，请重新输入"));
+            }
+            var result = _moduleService.Insert(moduleVM);
+            result.Message = result.Message ?? result.ResultType.GetDescription();
+            return Json(result);
+        }
+        #endregion
+
+        #region 修改
+        [IsAjax]
+        public ActionResult Edit(int id = 0)
+        {
+            var module = _moduleService.Modules.FirstOrDefault(m => m.Id == id);
+            if (module == null)
+            {
+                return Add();
+            }
+            var moduleVM = new ModuleVM
+            {
+                Id = module.Id,
+                Name = module.Name,
+                ParentId = module.ParentId,
+                LinkUrl = module.LinkUrl,
+                IsMenu = module.IsMenu,
+                Code = module.Code,
+                Description = module.Description,
+                Enabled = module.Enabled,
+            };
+            GetParentModuleList(module);
+            return PartialView("Add", moduleVM);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(ModuleVM moduleVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new OperationResult(OperationResultType.ParamError, "参数错误，请重新输入"));
+            }
+            OperationResult result = _moduleService.Update(moduleVM);
+            result.Message = result.Message ?? result.ResultType.GetDescription();
+            return Json(result);
+        }
+        #endregion
 
         /// <summary>
         /// 获取页面按钮可见权限
@@ -90,6 +135,35 @@ namespace Web.Areas.RBAC.Controllers
                 ViewData.Add("btnEditModulePermission", permissionCache.FirstOrDefault(p => p.Enabled == true && p.Code == EnumPermissionCode.EditModule.ToString()));
             }
 
+        }
+        /// <summary>
+        /// 获取上级模块列表
+        /// </summary>
+        /// <param name="module">模块实例，用来设置上级模块下拉列表的当前选择项</param>
+        private void GetParentModuleList(Module module)
+        {
+            List<SelectListItem> selItems = null;
+            if (module == null)
+            {
+                selItems = _moduleService.Modules
+                .Where(m => m.IsMenu == true && m.Enabled == true && m.ParentId == null)
+                .Select(c => new SelectListItem() { Text = c.Name, Value = c.Id.ToString() })
+                .ToList();
+            }
+            else
+            {
+                selItems = _moduleService.Modules
+                  .Where(m => m.IsMenu == true && m.Enabled == true && m.ParentId == null && m.Id != module.Id)
+                  .Select(m => new SelectListItem()
+                  {
+                      Text = m.Name,
+                      Value = m.Id.ToString(),
+                      Selected = (module.ParentId.HasValue && module.ParentId.Value == m.Id)
+                  })
+                  .ToList();
+            }
+
+            ViewData["parentModules"] = selItems;
         }
     }
 }
